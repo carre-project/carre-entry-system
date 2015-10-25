@@ -7,7 +7,7 @@
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
@@ -74,7 +74,7 @@ module.exports = function (grunt) {
       livereload: {
         options: {
           open: true,
-          middleware: function (connect) {
+          middleware: function(connect) {
             return [
               connect.static('.tmp'),
               connect().use(
@@ -89,7 +89,7 @@ module.exports = function (grunt) {
       test: {
         options: {
           port: 9001,
-          middleware: function (connect) {
+          middleware: function(connect) {
             return [
               connect.static('.tmp'),
               connect.static('test'),
@@ -161,16 +161,16 @@ module.exports = function (grunt) {
     },
 
     // Automatically inject Bower components into the app
-/*    wiredep: {
-      options: {
-        cwd: '<%= yeoman.app %>'
-      },
-      app: {
-        src: ['<%= yeoman.app %>/index.html'],
-        ignorePath:  /\.\.\//
-      }
-    },
-*/
+    /*    wiredep: {
+          options: {
+            cwd: '<%= yeoman.app %>'
+          },
+          app: {
+            src: ['<%= yeoman.app %>/index.html'],
+            ignorePath:  /\.\.\//
+          }
+        },
+    */
     // Renames files for browser caching purposes
     filerev: {
       dist: {
@@ -207,7 +207,7 @@ module.exports = function (grunt) {
       html: ['<%= yeoman.dist %>/{,*/}*.html'],
       css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
       options: {
-        assetsDirs: ['<%= yeoman.dist %>','<%= yeoman.dist %>/images']
+        assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images']
       }
     },
 
@@ -228,14 +228,14 @@ module.exports = function (grunt) {
     uglify: {
       build: {
         files: [{
-            expand: true,
-            src: '**/*.js',
-            dest: '<%= yeoman.dist %>/scripts',
-            cwd: '<%= yeoman.app %>/scripts'
+          expand: true,
+          src: '**/*.js',
+          dest: '<%= yeoman.dist %>/scripts',
+          cwd: '<%= yeoman.app %>/scripts'
         }]
       },
       options: {
-        mangle:false
+        mangle: false
       },
     },
     // concat: {
@@ -289,9 +289,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-         cwd: '<%= yeoman.app %>/scripts',
+          cwd: '<%= yeoman.app %>/scripts',
           src: '**/*.js',
-         dest: '<%= yeoman.dist %>/scripts',
+          dest: '<%= yeoman.dist %>/scripts',
         }]
       }
     },
@@ -307,30 +307,31 @@ module.exports = function (grunt) {
     copy: {
       dist: {
         files: [{
-          expand: true,
-          dot: true,
-          cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.dist %>',
-          src: [ '**']
-        },{
+            expand: true,
+            dot: true,
+            cwd: '<%= yeoman.app %>',
+            dest: '<%= yeoman.dist %>',
+            src: ['**']
+          }, {
 
-          expand:true,
-          cwd:'bower_components',
-          dest:'<%= yeoman.dist %>/bower_components',
-          src:['**']
-        } ,
+            expand: true,
+            cwd: 'bower_components',
+            dest: '<%= yeoman.dist %>/bower_components',
+            src: ['**']
+          },
 
-        {
-          expand: true,
-          cwd: '.tmp/images',
-          dest: '<%= yeoman.dist %>/images',
-          src: ['generated/*']
-        }, {
-          expand: true,
-          cwd: 'bower_components/bootstrap/dist',
-          src: 'fonts/*',
-          dest: '<%= yeoman.dist %>'
-        }]
+          {
+            expand: true,
+            cwd: '.tmp/images',
+            dest: '<%= yeoman.dist %>/images',
+            src: ['generated/*']
+          }, {
+            expand: true,
+            cwd: 'bower_components/bootstrap/dist',
+            src: 'fonts/*',
+            dest: '<%= yeoman.dist %>'
+          }
+        ]
       },
       styles: {
         expand: true,
@@ -361,11 +362,40 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    //deploy settings
+    buildcontrol: {
+      options: {
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      pages: {
+        options: {
+          remote: 'git@github.com:example_user/example_webapp.git',
+          branch: 'gh-pages'
+        }
+      },
+      dokku: {
+        options: {
+          remote: 'dokku@athina.med.duth.gr:carre-entry-system.git',
+          branch: 'master',
+          tag: pkg.version
+        }
+      },
+      local: {
+        options: {
+          remote: '../',
+          branch: 'build'
+        }
+      }
     }
   });
 
 
-  grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
+  grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
     }
@@ -379,7 +409,7 @@ module.exports = function (grunt) {
     ]);
   });
 
-  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
+  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function(target) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
     grunt.task.run(['serve:' + target]);
   });
