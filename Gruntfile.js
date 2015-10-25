@@ -371,8 +371,8 @@ module.exports = function(grunt) {
     buildcontrol: {
       options: {
         dir: 'dist',
-        commit: true,
-        push: true,
+        // commit: true,
+        // push: true,
         force:true,
         message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
       },
@@ -438,6 +438,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('deploy', [
     'build',
+    'clean:deploy',
     'buildcontrol:dokku'
   ]);
   
