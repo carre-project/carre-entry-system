@@ -144,7 +144,8 @@ module.exports = function(grunt) {
           ]
         }]
       },
-      server: '.tmp'
+      server: '.tmp',
+      deploy: 'dist/.git'
     },
 
     // Add vendor prefixed styles
