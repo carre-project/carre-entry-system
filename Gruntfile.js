@@ -1,4 +1,3 @@
-// Generated on 2015-01-21 using generator-angular 0.9.2
 'use strict';
 
 // # Globbing
@@ -20,7 +19,10 @@ module.exports = function(grunt) {
     app: require('./bower.json').appPath || 'app',
     dist: 'dist'
   };
-
+  
+  //add package.json reference
+  var pkg = require('./package.json');
+  
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -382,7 +384,7 @@ module.exports = function(grunt) {
         options: {
           remote: 'dokku@athina.med.duth.gr:carre-entry-system.git',
           branch: 'master',
-          tag: pkg.version
+          tag:  pkg.version
         }
       },
       local: {
