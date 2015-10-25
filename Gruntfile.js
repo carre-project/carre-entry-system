@@ -383,7 +383,7 @@ module.exports = function(grunt) {
       },
       dokku: {
         options: {
-          remote: 'dokku@athina.med.duth.gr:carre-entry-system.git',
+          remote: 'dokku@athina.med.duth.gr:carre-entry-system',
           branch: 'master',
           tag:  pkg.version
         }
