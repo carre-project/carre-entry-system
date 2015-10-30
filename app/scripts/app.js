@@ -41,23 +41,15 @@ angular
   .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider','$injector','$locationProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,$injector,$locationProvider) {
     
     
-    $locationProvider.html5Mode(false);
+    $locationProvider.html5Mode(false).hashPrefix('!');
   
     $ocLazyLoadProvider.config({
       debug: false,
       events: true,
     });
 
-    // $urlRouterProvider.otherwise('dashboard/home');
-$urlRouterProvider.otherwise(function($injector) {
-
-  var $state = $injector.get('$state');
-
-  $state.go('dashboard.home', null, {
-    location: false
-  });
-
-});
+    $urlRouterProvider.otherwise('dashboard/home');
+    
     $stateProvider
       .state('dashboard', {
         url: '/dashboard',
