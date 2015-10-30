@@ -48,7 +48,7 @@ angular
       events: true,
     });
 
-    $urlRouterProvider.otherwise('dashboard/home');
+    $urlRouterProvider.otherwise('/404_error');
     
     $stateProvider
       .state('dashboard', {
