@@ -41,7 +41,7 @@ angular
   .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider','$injector','$locationProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,$injector,$locationProvider) {
     
     
-    $locationProvider.html5Mode(false).hashPrefix('!');
+    $locationProvider.html5Mode(true).hashPrefix('!');
   
     $ocLazyLoadProvider.config({
       debug: false,

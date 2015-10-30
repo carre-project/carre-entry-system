@@ -20,9 +20,27 @@ http {
     <% end %>
     index index.html;
     
-    <%#= https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-to-use-custom-error-pages-on-ubuntu-14-04 %>
-    error_page 404 /404.html;
-    error_page 500 502 503 504 /custom_50x.html;
+    error_page 404 /404_error;
+
+    error_page 500 502 503 504 /500_error;
     
+    # SEO
+    if ($args ~ "_escaped_fragment_=/?(.+)") {
+        set $path $1;
+        rewrite ^ /snapshots/$path last;
+    }
+    
+    location ~* \.(gif|jpg|jpeg|png|js|css)$ {
+    }
+        
+    location / {
+        allow all;
+        expires -1;
+        add_header Pragma "no-cache";
+        add_header Cache-Control "no-store, no-cache, must-revalidate, post-check=0, pre-check=0";
+        
+        try_files $uri $uri/ /index.html =404;
+    }
+  
   }
 }
