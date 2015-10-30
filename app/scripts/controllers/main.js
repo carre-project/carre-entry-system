@@ -8,6 +8,9 @@
  */
 angular.module('CarreEntrySystem')
   .controller('MainCtrl', function($scope,$position,CarreQuery) {
+    
+    $scope.goto='dashboard.home';
+    
     var citation='<http://carre.kmi.open.ac.uk/citations/15385656>';
     var citationQuery="SELECT ?citation ?has_author ?has_citation_pubmed_identifier ?has_reviewer ?has_citation_source_type ?has_citation_source_level FROM <http://carre.kmi.open.ac.uk/beta> WHERE { \n\
              ?citation \n\

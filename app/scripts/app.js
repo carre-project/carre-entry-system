@@ -38,15 +38,26 @@ angular
       });
     };
   })
-  .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
-
+  .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider','$injector','$locationProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,$injector,$locationProvider) {
+    
+    
+    $locationProvider.html5Mode(false);
+  
     $ocLazyLoadProvider.config({
       debug: false,
       events: true,
     });
 
-    $urlRouterProvider.otherwise('dashboard/home');
+    // $urlRouterProvider.otherwise('dashboard/home');
+$urlRouterProvider.otherwise(function($injector) {
 
+  var $state = $injector.get('$state');
+
+  $state.go('dashboard.home', null, {
+    location: false
+  });
+
+});
     $stateProvider
       .state('dashboard', {
         url: '/dashboard',
