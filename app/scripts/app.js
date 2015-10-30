@@ -17,43 +17,24 @@ angular
   .service('CarreQuery', function($http) {
 
     var API = 'http://beta.carre-project.eu:5050/carre.kmi.open.ac.uk:443/ws/'; // http://carre.kmi.open.ac.uk:443/ws/  
-    var TOKEN = '';
-    //autocomplete fetch from bioportal
+    var TOKEN = '0213be219dc1821eb2f7b0bbc7c8a6cbe3c3559b';
+    var PREFIXSTR= "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \n\
+                    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n\
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n\
+                    PREFIX sensors: <http://carre.kmi.open.ac.uk/ontology/sensors.owl#> \n\
+                    PREFIX risk: <http://carre.kmi.open.ac.uk/ontology/risk.owl#> \n\
+                    PREFIX carreManufacturer: <http://carre.kmi.open.ac.uk/manufacturers/> \n\
+                    PREFIX carreUsers: <https://carre.kmi.open.ac.uk/users/> \n";
+                    
     return function(sparqlQuery) {
-      $http.post(API + 'query', {
+      
+      //add prefixes
+      sparqlQuery=PREFIXSTR+sparqlQuery;
+      console.log('Final query: ',sparqlQuery);
+      
+      return $http.post(API + 'query', {
         'sparql': sparqlQuery,
         'token': TOKEN
-      }).success(function(data) {
-
-        var results = [];
-        var items = [];
-        data.forEach(function(triple) {
-
-          var prop = triple.predicate.value.split('#')[1] || '_';
-          if (items.indexOf(triple.subject.value) === -1) {
-            items.push(triple.subject.value);
-            var obj = {
-              id: triple.subject.value
-            };
-            obj[prop] = obj[prop] || [];
-            obj[prop].push(triple.object.value);
-            results.push(obj);
-          }
-          else {
-            results[items.indexOf(triple.subject.value)][prop] = results[items.indexOf(triple.subject.value)][prop] || [];
-            results[items.indexOf(triple.subject.value)][prop].push(triple.object.value);
-          }
-        });
-        console.log(results);
-        return {
-          'error': false,
-          'data': results
-        }
-      }).error(function(err) {
-        return {
-          'error': true,
-          'data': err
-        }
       });
     };
   })
