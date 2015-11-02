@@ -6,10 +6,14 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+    <link rel="stylesheet" href="bower_components/angular-toggle-switch/angular-toggle-switch.css" />
+    <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.css" />
     <!-- endbower -->
     <!-- endbuild -->
     
@@ -17,31 +21,47 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/theme.css">
     <link rel="stylesheet" href="styles/timeline.css">
-    <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.min.css">
-    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css">
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" type="text/css">
     <!-- endbuild -->
     
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="bower_components/json3/lib/json3.min.js"></script>
-    <script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
-    <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
-    <script src="bower_components/Chart.js/Chart.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-toggle-switch/angular-toggle-switch.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/metisMenu/dist/metisMenu.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="js/theme.js"></script>
+    
+    <script src="scripts/app.js"></script>
+    <script src="scripts/app.config.js"></script>
+    <script src="scripts/directives/header/header.js"></script>
+    <script src="scripts/directives/header/header-notification/header-notification.js"></script>
+    <script src="scripts/directives/sidebar/sidebar.js"></script>
+    <script src="scripts/directives/sidebar/sidebar-search/sidebar-search.js"></script>
+    <script src="scripts/services/rdf.service.js"></script>
+    <script src="scripts/services/citations.service.js"></script>
+    <script src="scripts/services/user.service.js"></script>
+    <script src="scripts/directives/timeline/timeline.js"></script>
+    <script src="scripts/directives/notifications/notifications.js"></script>
+    <script src="scripts/directives/chat/chat.js"></script>
+    <script src="scripts/directives/dashboard/stats/stats.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="js/theme.js"></script>
     <!-- endbuild -->
-
 
 
     <script>
@@ -55,10 +75,6 @@
     <!-- Custom CSS -->
 
     <!-- Custom Fonts -->
-
-    <!-- Morris Charts CSS -->
-    <!-- <link href="styles/morrisjs/morris.css" rel="stylesheet"> -->
-
 
     </head>
    

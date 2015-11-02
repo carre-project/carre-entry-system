@@ -164,16 +164,18 @@ module.exports = function(grunt) {
     },
 
     // Automatically inject Bower components into the app
-    /*    wiredep: {
-          options: {
-            cwd: '<%= yeoman.app %>'
-          },
-          app: {
-            src: ['<%= yeoman.app %>/index.html'],
-            ignorePath:  /\.\.\//
-          }
-        },
-    */
+    wiredep: {
+      options: {
+        cwd: '<%= yeoman.app %>',
+        bowerJson: require('./bower.json'),
+        directory: 'bower_components'
+      },
+      app: {
+        src: ['<%= yeoman.app %>/index.html'],
+        ignorePath:  /\.\.\//
+      }
+    },
+    
     // Renames files for browser caching purposes
     filerev: {
       dist: {
@@ -308,6 +310,14 @@ module.exports = function(grunt) {
 
     // Copies remaining files to places other tasks can use
     copy: {
+      DEVconfig:{
+        src:'<%= yeoman.app %>/scripts/app.config.dev.js',
+        dest:'<%= yeoman.app %>/scripts/app.config.js'
+      },
+      PRODconfig:{
+        src:'<%= yeoman.app %>/scripts/app.config.prod.js',
+        dest:'<%= yeoman.app %>/scripts/app.config.js'
+      },
       dist: {
         files: [{
             expand: true,
@@ -387,12 +397,6 @@ module.exports = function(grunt) {
           remote: 'dokku@athina.med.duth.gr:carre-entry-system',
           branch: 'master'
         }
-      },
-      local: {
-        options: {
-          remote: '../',
-          branch: 'build'
-        }
       }
     }
   });
@@ -404,6 +408,7 @@ module.exports = function(grunt) {
     }
 
     grunt.task.run([
+      'copy:DEVconfig',
       'clean:server',
       'concurrent:server',
       'autoprefixer',
@@ -426,6 +431,8 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build', [
+    'copy:PRODconfig',
+    'wiredep',
     'clean:dist',
     'concurrent:dist',
     'copy:dist',
