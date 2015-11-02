@@ -54,7 +54,9 @@ angular
       return RDF(listQuery);        
     };
     var insertCitation=function(citationObj){
-      insertQuery="INSERT INTO  <http://carre.kmi.open.ac.uk/beta> { \n\
+      
+      
+      var insertQuery="INSERT INTO  <http://carre.kmi.open.ac.uk/beta> { \n\
       <"+citationObj.citation.value+"> rdf:type risk:citation ; \n\
                           risk:has_author <"+citationObj.has_author.value+">; \n\
                           risk:has_citation_pubmed_identifier '"+citationObj.has_citation_pubmed_identifier.value+"'^^xsd:int ; \n\
@@ -65,6 +67,7 @@ angular
     
     };
     var updateCitation=function(oldcitationObj,newcitationObj,archiveFlag){
+      
       //for the shake of complexity do not find diff and just resplace the whole thing. i mean it!!
       var updateQuery="DELETE FROM <http://carre.kmi.open.ac.uk/beta> WHERE { \n\
                           <"+citationObj.citation.value+"> rdf:type risk:citation ; \n\
@@ -95,7 +98,7 @@ angular
   .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider','$injector','$locationProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,$injector,$locationProvider) {
     
     
-    $locationProvider.html5Mode(false);
+    $locationProvider.html5Mode(true);
   
     $ocLazyLoadProvider.config({
       debug: false,
@@ -103,7 +106,7 @@ angular
     });
 
     //$urlRouterProvider.otherwise('404_error');
-    $urlRouterProvider.otherwise('dashboard');
+    $urlRouterProvider.otherwise('/dashboard/home');
     
     $stateProvider
       .state('dashboard', {
