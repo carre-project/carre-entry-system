@@ -10,7 +10,11 @@
 angular.module('CarreEntrySystem', [
     'ui.router',
     'ui.bootstrap',
-    'angular-loading-bar'
+    'angular-loading-bar',
+    'ngAnimate',
+    'ngCookies',
+    'ngSanitize',
+    'ngTouch'
   ]).config(function($stateProvider, $urlRouterProvider) {
     
   

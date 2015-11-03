@@ -243,10 +243,6 @@ module.exports = function(grunt) {
         mangle: false
       },
     },
-    // concat: {
-    //   dist: {}
-    // },
-
     imagemin: {
       dist: {
         files: [{

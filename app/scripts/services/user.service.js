@@ -1,9 +1,8 @@
-angular.module('CarreEntrySystem').service('User', function($http,CONFIG) {
+angular.module('CarreEntrySystem').service('User', function($http,CONFIG,$cookies) {
 
  
     // Retrieving a cookie and set initial user object
-    // var TOKEN = $cookies.get('CARRE_USER') || '';
-    var TOKEN=CONFIG.TEST_TOKEN;
+    var TOKEN = $cookies.get('CARRE_USER') || CONFIG.TEST_TOKEN || '';
     var user = {};
     return function(){
         //validate cookie token with userProfile api function and get username userGraph
@@ -16,7 +15,6 @@ angular.module('CarreEntrySystem').service('User', function($http,CONFIG) {
             };
             console.log("User service",user);
             return user;
-          
               
           }, function(err) {
                 return false;
