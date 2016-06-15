@@ -1,9 +1,0 @@
-<div class="well-sm" ng-if="controls.user">
-    <a ng-show="'**.view'|includedByState" class="btn btn-xs btn-primary" ui-sref="^.edit({id:controls.carreId})"><i class="fa fa-pencil"></i> Edit</a>
-    <a ng-show="'**.edit'|includedByState" class="btn btn-xs btn-primary" ui-sref="^.view({id:controls.carreId})"><i class="fa fa-eye"></i> View</a>
-    <span ng-if="controls.dev&&controls.carreId"> 
-          <a class="btn btn-xs btn-danger" href="" ng-click="main.deleteCurrent(controls.carreId)"><i class="fa fa-trash-o"></i> Delete</a>
-          <span class="badge">{{controls.carreId}}</span>
-    </span>
-    
-</div>

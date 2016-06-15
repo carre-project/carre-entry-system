@@ -1,5 +1,0 @@
-/*fix full width visibility*/
-.ui-select-bootstrap > .ui-select-choices {
-    width: auto;
-    max-height: 300px;
-}

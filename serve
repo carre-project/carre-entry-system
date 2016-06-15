@@ -1,9 +1,0 @@
-#!/bin/bash
-
-export NODE_ENV=development
-export CARRE_ENTRY_SYSTEM_LANGUAGE=en
-export CARRE_ENTRY_SYSTEM_API_URL=https://carre.kmi.open.ac.uk/ws/
-export CARRE_ENTRY_SYSTEM_AUTH_URL=https://devices.carre-project.eu/devices/accounts/
-export CARRE_ENTRY_SYSTEM_GRAPH_URL=http://carre.kmi.open.ac.uk/
-gulp serve
-
