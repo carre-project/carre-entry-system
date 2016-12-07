@@ -21,7 +21,7 @@ angular.module('CarreEntrySystem').service('Measurement_types', function($http, 
           datatype: $scope.model.has_datatype_label
         };
     */
-    if(newElem.name.length>0) newObj.has_measurement_type_name = {pre:'risk',value:newElem.name.toString(),type:"string"};
+    if(newElem.name.length>0) newObj.has_measurement_type_name = {pre:'risk',value:newElem.name.toString(),type:"lang"};
     if(newElem.unit.length>0) newObj.has_label = {pre:'risk',value:newElem.unit.toString(),type:"string"};
     if(newElem.datatype.length>0) newObj.has_datatype = {pre:'risk',value:newElem.datatype.toString(),type:"string"};
     if(newElem.has_enumeration_values.length>0) newObj.has_enumeration_values = {pre:'risk',value:newElem.has_enumeration_values.toString(),type:"string"};

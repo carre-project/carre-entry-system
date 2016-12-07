@@ -6,10 +6,10 @@
       <div class="form-group" ng-class="{ 'has-error': form.email.$touched && form.email.$invalid }">
 
         <span ng-show="loadingElementIdentifier" class="loadingSelect"></span>
-        <label> Evidence source </label>
+        <label> Evidence source (Pubmed ID)</label>
         <span class="badge badge-default">{{pubmedAutocompleteResultsCount}} Result(s)</span>
         <ui-select on-select="selectPubmed($item,$model)" class="ui-select-big-text" ng-model="citation.pubmedId" theme="bootstrap">
-          <ui-select-match placeholder="Select evidence source">
+          <ui-select-match placeholder="Enter Pubmed ID">
             <div>{{$select.selected.title}}</div>
             <div>{{$select.selected.authorString}}</div>
             <div>{{$select.selected.source}} - {{$select.selected.pubYear}}</div>
@@ -71,9 +71,9 @@
 
   </div>
 
-  <div ng-hide="noPubmed" class="col-sm-6">
-    <label>Pubmed Id</label>
-    <input type="text" name="name" placeholder="Enter pubmed Id" class="form-control" ng-change="loadPubmed()" ng-model="citation.pubmedId" required>
+  <div ng-hide="noPubmed||!showPubmed" class="col-sm-6">
+    <label>Pubmed Viewer</label>
+    <!--<input type="text" name="name" placeholder="Enter pubmed Id" class="form-control" ng-change="loadPubmed()" ng-model="citation.pubmedId" required>-->
     <carre-view-pubmed ng-if="showPubmed" id="{{citation.pubmedId}}"></carre-view-pubmed>
   </div>
   <!--<pre>form.name.$error = {{ form.name.$error | json }}</pre>-->

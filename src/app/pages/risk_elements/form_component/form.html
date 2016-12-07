@@ -42,7 +42,7 @@
       <div ng-show="loadingElementIdentifier" class="loadingSelect"></div>
 
       <ui-select ng-model="risk_element.identifier" theme="bootstrap">
-        <ui-select-match placeholder="Search for CUI...">{{$select.selected.label+' - '+$select.selected.value}}</ui-select-match>
+        <ui-select-match style="min-width: 100px;" placeholder="Search for CUI...">{{$select.selected.label+' - '+$select.selected.value}}</ui-select-match>
         <ui-select-choices repeat="elem.value as elem in bioportalAutocompleteResults |  propsFilter: {label: $select.search}" 
           refresh="bioportalAutocomplete($select.search)" refresh-delay="500">
           <div ng-bind-html="elem.label | highlight: $select.search"></div>

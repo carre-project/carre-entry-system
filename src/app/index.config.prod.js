@@ -7,7 +7,8 @@
       "currentUser":{},
       "USECACHE":false,
       "ENV": "PROD",
-      "useOfflineMode":true
+      "useOfflineMode":true,
+      "AllowDelete":true,
     }).config(function($locationProvider, $compileProvider, $urlRouterProvider) {
       
       //show error

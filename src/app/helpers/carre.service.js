@@ -304,6 +304,7 @@ WITH <http://carre.kmi.open.ac.uk/public> DELETE { OB:OB_5 risk:has_external_pre
   }
   
   function invalidateCache(req_url_id){
+    if(!CONFIG.USECACHE) return; 
     var graphName=CONFIG.CARRE_DEFAULT_GRAPH.substring(CONFIG.CARRE_DEFAULT_GRAPH.lastIndexOf("/")+1,CONFIG.CARRE_DEFAULT_GRAPH.lastIndexOf(">"));
     var url=CONFIG.CARRE_CACHE_URL + 'refresh_cache/'+graphName+'_'+CONFIG.LANG+'_'+req_url_id
     

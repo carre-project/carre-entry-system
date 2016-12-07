@@ -74,7 +74,10 @@ angular.module('CarreEntrySystem').service('QUERY', function(CONFIG) {
     if(node instanceof Object) {
       //it should be an object
       if(node.type!=="node"){
-        return "\"" + node.value + "\"^^" + fillPrefix('xsd:' + node.type); //if it is value
+        if(node.type==="lang") {
+          console.log("NODE is ",node);
+          return "\"" + node.value + "\"@" + CONFIG.LANG.trim();
+        } else return "\"" + node.value + "\"^^" + fillPrefix('xsd:' + node.type);
       } else {
           if (node.value.indexOf('http://') === 0 || node.value.indexOf('https://') === 0) return '<' + node.value + '>';  //if it is node without prefix
           else return fillPrefix(node.value); //if it is node or relation with prefix

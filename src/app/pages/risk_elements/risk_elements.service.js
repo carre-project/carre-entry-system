@@ -19,7 +19,7 @@ angular.module('CarreEntrySystem').service('Risk_elements', function($http, CARR
     if (newElem.name.length > 0) newObj.has_risk_element_name = {
       pre: 'risk',
       value: newElem.name.toString(),
-      type: "string"
+      type: "lang"
     };
     if (newElem.identifier.length > 0) newObj.has_risk_element_identifier = {
       pre: 'risk',
@@ -31,7 +31,7 @@ angular.module('CarreEntrySystem').service('Risk_elements', function($http, CARR
       value: newElem.type.toString(),
       type: "node"
     };
-    if (newElem.modifiable_status.length > 0) newObj.has_risk_element_modifiable_status = {
+    if (newElem.modifiable_status) newObj.has_risk_element_modifiable_status = {
       pre: 'risk',
       value: newElem.modifiable_status.toString(),
       type: "string"

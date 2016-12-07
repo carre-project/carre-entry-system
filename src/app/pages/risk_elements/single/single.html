@@ -11,6 +11,6 @@
     <carre-element ng-if="mode" type="risk_element" elem-id="{{id}}" mode="{{mode}}"></carre-element>
   </div>
   <div class="col-sm-8">
-    <carre-graph-chord-risk height="400" riskid="id"></carre-graph-chord-risk>
+    <carre-graph-chord-risk ng-if="mode!=='create'" height="400" riskid="id"></carre-graph-chord-risk>
   </div>
 </div>

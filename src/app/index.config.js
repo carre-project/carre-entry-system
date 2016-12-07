@@ -13,8 +13,8 @@
     var defaults = {
       language:'en',
       api_url:'https://devices.duth.carre-project.eu/ws/',
-      cache_url:'https://cache.carre-project.eu/',
-      authentication_url:'https://devices.carre-project.eu/devices/accounts/',
+      cache_url:'NO_CACHE',
+      authentication_url:'https://devices.duth.carre-project.eu/devices/accounts/',
       graph_url:'carre.kmi.open.ac.uk'
     };
     window.CARRE_ENTRY_SYSTEM_CONFIGURATION = angular.isObject(window.CARRE_ENTRY_SYSTEM_CONFIGURATION)?angular.extend(defaults, window.CARRE_ENTRY_SYSTEM_CONFIGURATION):defaults;
@@ -25,7 +25,8 @@
     CONFIG.CARRE_API_URL=window.CARRE_ENTRY_SYSTEM_CONFIGURATION.api_url;
     CONFIG.CARRE_CACHE_URL=window.CARRE_ENTRY_SYSTEM_CONFIGURATION.cache_url;
     
-    if(CONFIG.CARRE_CACHE_URL==='NO_CACHE') CONFIG.USECACHE=false;
+    // if(CONFIG.CARRE_CACHE_URL==='NO_CACHE') CONFIG.USECACHE=false;
+    CONFIG.USECACHE=false;
     
     //EXTERNAL API'S
     CONFIG.BIOPORTAL_API_URL="https://data.bioontology.org/";

@@ -31,7 +31,7 @@ angular.module('CarreEntrySystem')
             return {
               value: obj.id||"",
               pubmed:obj.has_citation_pubmed_identifier[0]||"",
-              title: label[1]||"",
+              title: label[1].replace('; ','')||"",
               authors: label[0]||"",
               date: label[2]||""
             };
@@ -171,7 +171,7 @@ angular.module('CarreEntrySystem')
               return {
                 value: obj.id||"",
                 pubmed:obj.has_citation_pubmed_identifier[0]||"",
-                title: label[1]||"",
+                title: label[1].replace('; ','')||"",
                 authors: label[0]||"",
                 date: label[2]||""
               };
