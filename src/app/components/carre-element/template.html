@@ -8,7 +8,8 @@
                 {{field.label}}: <carre-linker model="current" property="{{field.value}}"></carre-linker>
               </li>
             </ul>
-            <a href="{{rdf_source | trustAsResourceUrl}}" target="_blank" class="btn btn-default btn-xs pull-right">View RDF source</a>
+            <!--<a ng-href="{{rdf_source | trustAsResourceUrl}}{{query}}" target="_blank" class="btn btn-default btn-xs pull-right">View RDF source</a>-->
+            <a ng-href="{{rdf_source | trustAsResourceUrl}}" target="_blank" class="btn btn-default btn-xs pull-right">View RDF source</a>
         </div>
         <div ng-if="current.pubmedId" class="col-sm-6">
             <carre-view-pubmed id="{{current.pubmedId}}"></carre-view-pubmed>

@@ -201,7 +201,10 @@ angular.module('CarreEntrySystem')
         }
         
         function rdfSource(id){
-          return "http://"+CONFIG.CARRE_API_URL.substring(CONFIG.CARRE_API_URL.indexOf("://")+3,CONFIG.CARRE_API_URL.indexOf("/ws"))+"/sparql?query=DESCRIBE <"+id+">&format=text/plain";
+          // return 'https://devices.duth.carre-project.eu/sparql?query=DESCRIBE%20%3C'+id+'%3E&format=text/plain';
+          return 'https://'+
+            CONFIG.CARRE_API_URL.substring(CONFIG.CARRE_API_URL.indexOf('://')+3,CONFIG.CARRE_API_URL.indexOf('/ws'))+
+            '/sparql?query=DESCRIBE%20%3C'+id+'%3E&format=text/plain';
         }
         
       }
