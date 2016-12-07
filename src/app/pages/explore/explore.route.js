@@ -16,11 +16,11 @@
         url: '/explore',
         templateUrl: 'app/pages/explore/index.html'
       })
-      .state('main.mineLiterature', {
-        controller: function(){},
-        url: '/mine-literature',
-        templateUrl: 'app/pages/explore/mine-literature.html'
-      });
+      // .state('main.mineLiterature', {
+      //   controller: function(){},
+      //   url: '/mine-literature',
+      //   templateUrl: 'app/pages/explore/mine-literature.html'
+      // });
   }
 
 })();
