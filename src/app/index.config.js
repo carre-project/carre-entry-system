@@ -27,6 +27,7 @@
     
     // if(CONFIG.CARRE_CACHE_URL==='NO_CACHE') CONFIG.USECACHE=false;
     CONFIG.USECACHE=false;
+    CONFIG.AllowDelete = true;
     
     //EXTERNAL API'S
     CONFIG.BIOPORTAL_API_URL="https://data.bioontology.org/";

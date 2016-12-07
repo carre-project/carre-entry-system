@@ -12,7 +12,7 @@ angular.module('CarreEntrySystem')
             controllerAs:'controls',
             scope: true,
             controller:function(CONFIG){
-                this.dev = CONFIG.ENV==='DEV';
+                this.dev = CONFIG.AllowDelete;
                 this.user = CONFIG.currentUser.username;
             }
     	}
