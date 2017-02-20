@@ -40,8 +40,10 @@ Scientific supervision: [Eleni Kaldoudi][15]
   
   
 ## Installation
+Requires [NodeJS](https://nodejs.org/en/download)
 
 ``` 
+npm install -g bower gulp-cli
 git clone https://github.com/carre-project/carre-entry-system.git 
 npm install
 ```
