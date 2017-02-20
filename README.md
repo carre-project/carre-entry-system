@@ -53,8 +53,4 @@ npm install
 
 
 ## Production deployment
-```
-./build
-serve the `dist` folder with a static webserver of your choice (apache,nginx,etc..)
-
-```
+```./build``` : Then serve the `dist` folder with a static webserver of your choice (apache,nginx,etc..)
