@@ -2,7 +2,8 @@
 [ ![Codeship Status for carre-project/carre-entry-system](https://codeship.com/projects/493e7480-6b0c-0133-0666-1a8865ac42d3/status?branch=master)](https://codeship.com/projects/115092)
 [![Build Status](https://travis-ci.org/carre-project/carre-entry-system.svg)](https://travis-ci.org/carre-project/carre-entry-system)
 ##
-Live stage server: [stage-entry.carre-project.eu](http://stage-entry.carre-project.eu)
+
+Production DUTH server: [entry.duth.carre-project.eu](http://entry.duth.carre-project.eu)
 
 Production server: [entry.carre-project.eu](http://entry.carre-project.eu)
 
@@ -37,3 +38,23 @@ Scientific supervision: [Eleni Kaldoudi][15]
 [14]: http://drosatos.info/
 [15]: http://iris.med.duth.gr/kaldoudi/en/
   
+  
+## Installation
+
+``` 
+git clone dfdsfdf 
+npm install
+```
+## Run
+
+```npm run dev``` : for development version
+
+```npm run prod``` : for production version
+
+
+## Production deployment
+```
+./build
+serve the `dist` folder with a static webserver of your choice (apache,nginx,etc..)
+
+```

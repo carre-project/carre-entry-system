@@ -3,7 +3,8 @@
   "version": "0.0.2",
   "dependencies": {},
   "scripts": {
-    "test": "gulp test"
+    "dev": "gulp serve",
+    "prod": "gulp serve:dist"
   },
   "devDependencies": {
     "browser-sync": "~2.9.11",
