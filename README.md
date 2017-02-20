@@ -42,7 +42,7 @@ Scientific supervision: [Eleni Kaldoudi][15]
 ## Installation
 
 ``` 
-git clone dfdsfdf 
+git clone https://github.com/carre-project/carre-entry-system.git 
 npm install
 ```
 ## Run
