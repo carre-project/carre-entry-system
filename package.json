@@ -4,7 +4,8 @@
   "dependencies": {},
   "scripts": {
     "dev": "gulp serve",
-    "prod": "gulp serve:dist"
+    "prod": "gulp serve:dist",
+    "postinstall":"bower install"
   },
   "devDependencies": {
     "browser-sync": "~2.9.11",
